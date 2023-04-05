@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Datos de los Clientes</h1>
+        <a th:href="@{/}"  >Regresar</a>
+        <br/>
+        <form th:action="@{/guardar}" method="post"  th:object="${cliente}" >
+            <input type="hidden" name="cli_id" th:field="*{cli_id}"/> 
+            <br/>
+            <label for="nombre"  > Nombre:</label>
+            <input type="text" name="nombre" th:field="*{cli_name}"/>
+            <br/>
+            <label for="telefono"  > Telefono</label>
+            <input type="tel" name="telefono" th:field="*{cli_phone}"/>
+            <br/>
+            <label for="email"  > Email:</label>
+            <input type="email" name="email" th:field="*{cli_email}"/>
+            <br/>
+            <input type="submit" name="guardar" value="Guardar"  />      
+        </form>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:sec="http://www.thymeleaf.org/extras/spring.security"
+       >
+    <head>
+        <title>CL3 Loayza Muzante Juan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div><h1>CL3 DAW Loayza Muzante Juan</h1></div>
+        <div>
+            <h3>Lista de Clientes</h3>
+            <a th:href="@{/agregar}" >Agregar Cliente</a>
+            <br/>
+            <table border="1" class="table">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+                <tr th:each ="cli :${Clientes}">
+                    <td th:text="${cli.cli_name}"></td>
+                    <td th:text="${cli.cli_phone}"></td>
+                    <td th:text="${cli.cli_email}"></td>
+                    <td> <a th:href="@{/editar/}+${cli.cli_id}"/>Editar</td>
+                    <td> <a th:href="@{/eliminar/}+${cli.cli_id}"/>Eliminar</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
